@@ -10,7 +10,7 @@ var React = require('react');
 
 
 // destructuring straight in params
-var WeatherMessage = ({temp, location}) => (
+var WeatherMessage = ({temperature, location}) => (
   <h4>Weather in {location} is {temperature}</h4>
 );
 
