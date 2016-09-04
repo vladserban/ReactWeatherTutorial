@@ -30,7 +30,6 @@ var Weather = React.createClass({
         isLoading: false,
         errorMessage: " " + errorMessage
       });
-      // alert(errorMessage);
     });
 
   },
