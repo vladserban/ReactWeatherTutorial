@@ -4,7 +4,14 @@ var {Link, IndexLink} = require('react-router');
 var Nav = React.createClass({
   onSearch: function(e) {
     e.preventDefault();
-    alert("Not yet, not yet!");
+
+    var navLocation = this.refs.location.value;
+    navLocation = encodeURIComponent(navLocation);
+
+    if (navLocation.length > 0) {
+      this.refs.location.value = '';
+      window.location.hash = '#/?location=' + navLocation;
+    }
   },
   render: function() {
     return (
