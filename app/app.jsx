@@ -11,7 +11,7 @@ var Examples = require('Examples');
 require('style!css!foundation-sites/dist/foundation.min.css');
 
 // load custom css (via webpack alias)
-require('style!css!applicationStyles');
+require('style!css!sass!applicationStyles');
 
 $(document).foundation();
 
