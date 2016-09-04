@@ -10,6 +10,7 @@ module.exports = {
     jquery: 'jQuery'
   },
   plugins: [
+    new webpack.OldWatchingPlugin(),
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
