@@ -13,12 +13,11 @@ var React = require('react');
 var WeatherMessage = ({temperature, temperatureDetails, location}) => {
   var iconUrl = 'http://openweathermap.org/img/w/' + temperatureDetails.icon + '.png';
 
-  debugger;
   return (
     <div>
       <h3 className="text-center">{temperatureDetails.shortDesc} in {location} with {temperature}&deg;</h3>
       <p className="text-center">
-        <img src={iconUrl} />  
+        <img src={iconUrl} style={{width: '50px', height: '50px'}}/>
         <br />
         {temperatureDetails.longDesc}
       </p>
