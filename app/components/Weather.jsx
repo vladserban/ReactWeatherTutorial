@@ -34,14 +34,17 @@ var Weather = React.createClass({
       isLoading: true,
       errorMessage: undefined,
       location: undefined,
-      temperature: undefined
+      temperature: undefined,
+      temperatureDetails: undefined
     });
 
-    openWeatherMap.getTemp(location).then(function(temp){
+    // using detailed function of API call
+    openWeatherMap.getTempDetails(location).then( function(tempDetails) {
       that.setState({
         isLoading: false,
         location: location,
-        temperature: temp
+        temperature: tempDetails.temp,
+        temperatureDetails: tempDetails
       });
     }, function(errorMessage){
       that.setState({
@@ -52,8 +55,7 @@ var Weather = React.createClass({
 
   },
   render: function(){
-    var {isLoading, temperature, location, errorMessage} = this.state;
-
+    var {isLoading, temperature, temperatureDetails, location, errorMessage} = this.state;
     function renderMessage(){
       if(isLoading){
         return (
@@ -61,7 +63,7 @@ var Weather = React.createClass({
         )
       } else if(temperature && location){
         return (
-          <WeatherMessage temperature={temperature} location={location}/>
+          <WeatherMessage temperature={temperature} temperatureDetails={temperatureDetails} location={location}/>
         );
       }
     }

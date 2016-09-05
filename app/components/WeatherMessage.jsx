@@ -10,9 +10,21 @@ var React = require('react');
 
 
 // destructuring straight in params
-var WeatherMessage = ({temperature, location}) => (
-  <h3 className="text-center">Weather in {location} is {temperature}</h3>
-);
+var WeatherMessage = ({temperature, temperatureDetails, location}) => {
+  var iconUrl = 'http://openweathermap.org/img/w/' + temperatureDetails.icon + '.png';
+
+  debugger;
+  return (
+    <div>
+      <h3 className="text-center">{temperatureDetails.shortDesc} in {location} with {temperature}&deg;</h3>
+      <p className="text-center">
+        <img src={iconUrl} />  
+        <br />
+        {temperatureDetails.longDesc}
+      </p>
+    </div>
+  );
+};
 
 
 module.exports = WeatherMessage;
