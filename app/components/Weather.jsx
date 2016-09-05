@@ -69,7 +69,17 @@ var Weather = React.createClass({
         }
 
         function renderRecentRows(recentLocations) {
-            return recentLocations.map((rl, i) => <RecentLocation key={i + 1} location={rl.location} temperatureDetails={rl.temperatureDetails}/>);
+
+            if( recentLocations.length > 0 ){
+              return (
+                <table className="table">
+                  <thead></thead>
+                  <tbody>
+                    {recentLocations.map((rl, i) => <RecentLocation key={i + 1} location={rl.location} temperatureDetails={rl.temperatureDetails}/>)}
+                  </tbody>
+                </table>
+              );
+            }
         }
 
         return (
@@ -78,12 +88,7 @@ var Weather = React.createClass({
                 <WeatherForm onNewCity={this.handleNewCity}/>
                 {renderMessage()}
                 {renderError()}
-                <table className="table">
-                    <thead></thead>
-                    <tbody>
-                        {renderRecentRows(this.state.recentLocations)}
-                    </tbody>
-                </table>
+                {renderRecentRows(this.state.recentLocations)}
             </div>
         );
     }
